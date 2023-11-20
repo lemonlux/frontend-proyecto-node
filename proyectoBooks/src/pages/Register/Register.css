@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+
+form{
+  margin: 1rem 0 0 0;
+}
+h1{
+  margin: 0.5rem;
+}
+p{
+  font-size: 14px;
+}
+
+.form{
+  padding: 1rem;
+  max-width: 30vw;
+  max-height: 70vh;
+  min-width: 400px;
+  min-height: 500px;
+ font-family: 'Manrope', sans-serif;
+ background-color: #FFFFFF;
+ border: 1px solid rgb(246, 230, 233) ;
+ border-radius: 10px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+
+ -webkit-box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.16);
+ -moz-box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.16);
+ box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.16);
+}
+
+input{
+  height: 2rem;
+}
+
+.btn{
+  height: 2.5rem;
+  background-color: #EE5684;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  border: groove 1px #ca3f69 ;
+  border-radius: 10px;
+  margin: 0.5rem;
+}
+.btn:focus{
+  transform: scale(0.97);
+}
+
+.btn-notsent{
+background-color: #EE5684;
+}
+
+.btn-sent{
+background-color: #bf3a62;
+}
+
+.container-div{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+
+.bottom-text{
+  display: flex;
+  flex-wrap: wrap;
+}

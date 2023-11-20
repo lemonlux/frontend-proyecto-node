@@ -1,0 +1,16 @@
+:root{
+    --background: #ECEEF1;
+    --backgroundBorder:  rgb(159, 68, 129);
+    --backgroundDarker:rgb(141, 54, 102);
+}
+
+
+
+
+body{
+    height: 100vh;
+ background-color: var(--background);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
