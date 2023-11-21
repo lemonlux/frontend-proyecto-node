@@ -31,6 +31,49 @@ p{
  box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.16);
 }
 
+
+#gender-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  flex-wrap: nowrap;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+& .hombre, .mujer, .nobinario{
+  border-radius: 3px;
+}
+
+
+.label-radio {
+  background: #EE5684;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  width: 49.5%;
+}
+/* 
+input[type="radio"]:focus{
+  background: #8b2745;
+}
+
+input[type="radio"]:checked + .label-radio {
+  background: #8b2745;
+} */
+
+.file{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 input{
   height: 2rem;
 }

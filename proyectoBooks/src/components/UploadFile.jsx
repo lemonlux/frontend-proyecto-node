@@ -85,13 +85,13 @@ export const UploadFile = ({ registerForm }) => {
         <img id="file-image" src="#" alt="Preview" className="hidden" />
         <div id="start">
           <i className="fa fa-download" aria-hidden="true"></i>
-          <div className="divSelect">Select a file or drag here</div>
+          <div className="divSelect">Choose a file or drag it here</div>
           <div id="notimage" className="hidden">
             Please select an image
           </div>
-          <span id="file-upload-btn" className="btn btn-primary">
+          {/* <span id="file-upload-btn" className="btn-primary">
             Select a file
-          </span>
+          </span> */}
         </div>
         <div id="response" className="hidden">
           <div id="messages"></div>

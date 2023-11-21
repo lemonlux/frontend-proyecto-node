@@ -107,21 +107,27 @@ return (
           </div>
 
           <div className='container-div form-div gender-div'>
-          <label htmlFor="custom-input" className="label gender">
+          <label htmlFor="custom-input" className="label-gender">
               Género
-              <div className='container-div genders'>
+              <div className='container-div genders' id='gender-div'>
+                <div className='gender hombre-div'>
             <label htmlFor='hombre' className='label-radio hombre'>
               Hombre
             </label>
             <input type='radio' name='gender' id='hombre' value='hombre' {...register('gender')}/>
+            </div>
+            <div className='gender mujer-div'>
             <label htmlFor='mujer' className='label-radio mujer'>
               Mujer
             </label>
             <input type='radio' name='gender' id='mujer' value='mujer' {...register('gender')}/>
+            </div>
+            <div className='gender nobinario-div'>
             <label htmlFor='no binario' className='label-radio no-binario'>
               No binario
             </label>
             <input type='radio' name='gender' id='no-binario' value='no binario' {...register('gender')}/>
+            </div>
             </div>
             </label>
           </div>
