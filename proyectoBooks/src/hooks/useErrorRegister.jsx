@@ -11,9 +11,9 @@ export const useErrorRegister = (res, setOk, setRes) => {
     Swal.fire({
     icon: 'success',
       title: 'Login succesful✅',
-      text: 'please check your email to verify',
+      text: 'please check your email to verify your account',
       showConfirmButton: false,
-      timer: 1500,
+      timer: 3000,
     });
     setRes({});
   }
@@ -24,23 +24,23 @@ export const useErrorRegister = (res, setOk, setRes) => {
     console.log('email', res?.response?.data)
     Swal.fire({
       icon: "error",
-      title: "This email is not valid",
+      title: "Invalid email",
       text: "Please, enter a valid email",
       showConfirmButton: false,
-      timer: 1500,
+      timer: 3000,
     });
     setRes({});
   }
 
   //! ------------------- La contraseña no esta en el formato correcto
-  if (res?.response?.data?.message?.includes("User validation failed: password:")) {
+  if (res?.response?.data?.includes("User validation failed: password:")) {
     console.log('password')
     Swal.fire({
       icon: "error",
       title: "Insuficient password",
-      text: "The password must contain min 8 characters, 1 upper case, 1 lower case and a special character",
+      text: "The password must contain 8 characters, 1 upper case, 1 lower case and a special character",
       showConfirmButton: false,
-      timer: 3000,
+      timer: 4000,
     });
     setRes({});
   }
@@ -54,7 +54,7 @@ export const useErrorRegister = (res, setOk, setRes) => {
       title: "This username is already in use",
       text: "Please, try another one",
       showConfirmButton: false,
-      timer: 1500,
+      timer: 3000,
     });
     setRes({});
   }
@@ -68,7 +68,7 @@ export const useErrorRegister = (res, setOk, setRes) => {
       title: "Interval server error",
       text: "There was an error in our interval server. Please try again",
       showConfirmButton: false,
-      timer: 1500,
+      timer: 3000,
     });
     setRes({});
   }
