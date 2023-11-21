@@ -1,14 +1,21 @@
 import { useState, useEffect } from 'react'
 import './Register.css'
 import { useForm } from "react-hook-form";
+import { Link, Navigate } from "react-router-dom";
 import { registerUser } from '../services/user.service';
 import { useErrorRegister } from '../hooks/useErrorRegister';
+import { useAuth } from '../context/authContext';
+import { UploadFile } from '../components/zindex';
+
+
+
 
 export const Register = () => {
+  const { allUser, setAllUser, bridgeData } = useAuth()
  //!--1-- tres estados:
 const [res, setRes] = useState({})   //estado que setea la respuesta
 const [send, setSend] = useState(false) //estado de cargando
-const [ok, setOk] = useState(false) //estado de navegacion
+const [okRegister, setOkRegister] = useState(false) //estado de navegacion
 
 //!--2-- llamadas a los hooks
 
@@ -17,12 +24,27 @@ const { handleSubmit, register } = useForm()  //handleSubmit gestiona los datos 
 //!--3-- funcion que gestiona los datos del formulario
 
 const formSubmit = async (formData) =>{ //le entran los datos del formulario
+  const inputFile = document.getElementById("file-upload").files
+  console.log(inputFile[0])
 
-    const customForData = { ...formData, gender: 'mujer' }
+  if(inputFile.length != 0){
+
+    const customForData = { ...formData, image: inputFile[0] }
+
 
     setSend(true)
     setRes( await registerUser(customForData)) //setea la respuesta, y al cambiar la res se lanza el useEffect
     setSend(false)
+  } else {
+
+    const customForData = { ...formData,}
+
+
+    setSend(true)
+    setRes( await registerUser(customForData)) //setea la respuesta, y al cambiar la res se lanza el useEffect
+    setSend(false)
+  }
+    
 
 }
 
@@ -30,19 +52,19 @@ const formSubmit = async (formData) =>{ //le entran los datos del formulario
 
 useEffect(() => {
     // console.log(res);
-    useErrorRegister(res, setOk, setRes);
+    useErrorRegister(res, setOkRegister, setRes);
   }, [res]);
 
 //!--5-- gestion de los estados de navegación
 
-if(ok){
+if(okRegister){
     console.log('registrado')
 }
 return (
 <>
 <div className="form form-div">
         <h1>Create an account</h1>
-        <p>Already a member? <a href='#'>Log in</a></p>
+        <p>Already a member? <Link to='/login'>Log in</Link></p>
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="container-div form-div user">
           <label htmlFor="custom-input" className="label username">
@@ -84,6 +106,28 @@ return (
             />
           </div>
 
+          <div className='container-div form-div gender-div'>
+          <label htmlFor="custom-input" className="label gender">
+              Género
+              <div className='container-div genders'>
+            <label htmlFor='hombre' className='label-radio hombre'>
+              Hombre
+            </label>
+            <input type='radio' name='gender' id='hombre' value='hombre' {...register('gender')}/>
+            <label htmlFor='mujer' className='label-radio mujer'>
+              Mujer
+            </label>
+            <input type='radio' name='gender' id='mujer' value='mujer' {...register('gender')}/>
+            <label htmlFor='no binario' className='label-radio no-binario'>
+              No binario
+            </label>
+            <input type='radio' name='gender' id='no-binario' value='no binario' {...register('gender')}/>
+            </div>
+            </label>
+          </div>
+          <div className='container-div form-div file'>
+            <UploadFile/>
+          </div>
           <div className="btn-div container-div">
             {console.log(send)}
             <button
@@ -96,9 +140,9 @@ return (
           </div>
           <p className="bottom-text">
             <small>
-              By clicking the Sign Up button, you agree to our{" "}
-              <a href="#">Terms & Conditions</a> and{" "}
-              <a href="#">Privacy Policy</a>.
+             By clicking the Sign Up button, you agree to our{" "}
+              <Link className="anchorCustom">Terms & Conditions</Link> and{" "}
+              <Link className="anchorCustom">Privacy Policy</Link>.
             </small>
           </p>
         </form>
