@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import './Register.css'
 import { useForm } from "react-hook-form";
-import { registerUser } from '../../services/user.service';
-import { useErrorRegister } from '../../hooks/useErrorRegister';
+import { registerUser } from '../services/user.service';
+import { useErrorRegister } from '../hooks/useErrorRegister';
 
 export const Register = () => {
  //!--1-- tres estados:
@@ -29,7 +29,7 @@ const formSubmit = async (formData) =>{ //le entran los datos del formulario
 //!--4-- los useEffect que gestionan la respuesta y llaman al customHook
 
 useEffect(() => {
-    console.log(res);
+    // console.log(res);
     useErrorRegister(res, setOk, setRes);
   }, [res]);
 

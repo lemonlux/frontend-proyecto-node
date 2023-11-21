@@ -3,9 +3,10 @@ import Swal from "sweetalert2/dist/sweetalert2.all.js"
 
 
 export const useErrorRegister = (res, setOk, setRes) => {
-    
+    console.log('entro en useError', res)
   //! ------------------ 200 : todo ok
   if (res?.status == 200) {
+    console.log('200')
     setOk(() => true);
     Swal.fire({
     icon: 'success',
@@ -15,10 +16,12 @@ export const useErrorRegister = (res, setOk, setRes) => {
       timer: 1500,
     });
     setRes({});
+  }
 
   //! ------------------- 409: user ya registrado
 
-  if (res?.response?.data == "this user already exists") {
+  if (res?.response?.data?.includes('this email already exists')) {
+    console.log('email', res?.response?.data)
     Swal.fire({
       icon: "error",
       title: "This email is not valid",
@@ -30,7 +33,8 @@ export const useErrorRegister = (res, setOk, setRes) => {
   }
 
   //! ------------------- La contraseña no esta en el formato correcto
-  if (res?.response?.data?.includes("validation failed: password")) {
+  if (res?.response?.data?.message?.includes("User validation failed: password:")) {
+    console.log('password')
     Swal.fire({
       icon: "error",
       title: "Insuficient password",
@@ -43,10 +47,8 @@ export const useErrorRegister = (res, setOk, setRes) => {
 
   //! ------------------- cuando el userName ya existe
   if (
-    res?.response?.data?.includes(
-      "E11000 duplicate key error collection: userProyect.users"
-    )
-  ) {
+    res?.response?.data?.includes('this username already exists')) {
+      console.log('username')
     Swal.fire({
       icon: "error",
       title: "This username is already in use",
@@ -60,6 +62,7 @@ export const useErrorRegister = (res, setOk, setRes) => {
   //! -------------------- 500 : internal server error
 
   if (res?.response?.status == 500) {
+    console.log('500')
     Swal.fire({
       icon: "error",
       title: "Interval server error",
@@ -70,4 +73,4 @@ export const useErrorRegister = (res, setOk, setRes) => {
     setRes({});
   }
 }
-}
+
