@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Register, CheckCode, Dashboard, ForgotPassword, Home, Login, NotFound, Profile } from "../pages/Register";
+import { Register, CheckCode, Dashboard, ForgotPassword, Home, Login, NotFound, Profile } from "../pages/zindex"
 import App from "../App";
 
 
@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '*',
-                element: <Dashboard/>
+                element: <NotFound/>
             },
         ]
     }

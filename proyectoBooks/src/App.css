@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+
+
 :root{
+    font-family: 'Manrope', sans-serif;
     --background: #ECEEF1;
     --backgroundBorder:  rgb(159, 68, 129);
     --backgroundDarker:rgb(141, 54, 102);

@@ -1,12 +1,11 @@
-
+import { Outlet } from "react-router-dom";
 import './App.css'
-import { Register } from './pages'
 
 const App = () => {
 
   return (
     <>
-      <Register/>
+      <Outlet/>
     </>
   )
 }
