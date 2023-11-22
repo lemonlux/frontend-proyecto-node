@@ -11,7 +11,7 @@ const [user, setUser] = useState(()  =>{
 return user ? JSON.parse(user) : null
 })
 
-const [allUser, setAllUser ] = useState({
+const [allUser, setAllUser] = useState({
     data: {
         confirmationCode: '',
         user:{
@@ -53,7 +53,7 @@ const logout = () =>{
 
 const value = useMemo (()=>({
     user, setUser, login, logout, allUser, setAllUser, bridgeData
-}), [user, allUsers])
+}), [user, allUser])
 
 
 
