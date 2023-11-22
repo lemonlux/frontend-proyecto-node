@@ -25,9 +25,9 @@ export const router = createBrowserRouter([
       {
         path: "/verify",
         element: (
-          // <ProtectedRefreshPage>
+          //  <ProtectedRefreshPage>
             <VerifyCode />
-          // </ProtectedRefreshPage>
+          //  </ProtectedRefreshPage>
         ),
       },
       {

@@ -43,8 +43,8 @@ export const Register = () => {
   //!--4-- los useEffect que gestionan la respuesta y llaman al customHook
 
   useEffect(() => {
-    // console.log(res);
     useErrorRegister(res, setOkRegister, setRes);
+    console.log(res, okRegister);
     if (res?.status == 200) bridgeData('registerOK');
   }, [res]);
 
@@ -54,9 +54,14 @@ export const Register = () => {
 
   //!--5-- gestion de los estados de navegación
 
-  if (okRegister) {
-    // <Navigate to="/verify" />;
-  }
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  useEffect(() =>{
+    if (okRegister) {
+      <Navigate to="/verify" />;
+   }
+  }, [okRegister])
+
   return (
     <>
       <div className="form form-div">
