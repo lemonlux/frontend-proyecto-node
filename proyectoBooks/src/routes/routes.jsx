@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   Register,
-  CheckCode,
   Dashboard,
   ForgotPassword,
   Home,
   Login,
   NotFound,
   Profile,
+  VerifyCode,
 } from "../pages/zindex";
 import App from "../App";
 import { ProtectedNotVerified, ProtectedRefreshPage } from "../components/zindex";
@@ -25,9 +25,9 @@ export const router = createBrowserRouter([
       {
         path: "/verify",
         element: (
-          <ProtectedRefreshPage>
-            <CheckCode />
-          </ProtectedRefreshPage>
+          // <ProtectedRefreshPage>
+            <VerifyCode />
+          // </ProtectedRefreshPage>
         ),
       },
       {

@@ -1,5 +1,5 @@
 export * from './Register'
-export * from './CheckCode'
+export * from './VerifyCode'
 export * from './Dashboard'
 export * from './ForgotPassword'
 export * from './Home'
