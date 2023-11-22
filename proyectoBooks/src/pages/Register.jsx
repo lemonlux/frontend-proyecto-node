@@ -45,7 +45,7 @@ export const Register = () => {
   useEffect(() => {
     // console.log(res);
     useErrorRegister(res, setOkRegister, setRes);
-    if (res?.status == 200) bridgeData("registerOK");
+    if (res?.status == 200) bridgeData('registerOK');
   }, [res]);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export const Register = () => {
   //!--5-- gestion de los estados de navegación
 
   if (okRegister) {
-    <Navigate to="/verify" />;
+    // <Navigate to="/verify" />;
   }
   return (
     <>
