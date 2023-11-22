@@ -10,6 +10,8 @@ import {
   Profile,
 } from "../pages/zindex";
 import App from "../App";
+import { ProtectedNotVerified, ProtectedRefreshPage } from "../components/zindex";
+
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +24,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/verify",
-        element: <CheckCode />,
+        element: (
+          <ProtectedRefreshPage>
+            <CheckCode />
+          </ProtectedRefreshPage>
+        ),
       },
       {
         path: "/password/setNewPassword",
@@ -38,11 +44,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: ( 
+          <ProtectedNotVerified>
+        <Dashboard />
+           </ProtectedNotVerified>
+        ),
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: ( 
+          <ProtectedNotVerified>
+        <Profile />
+           </ProtectedNotVerified>
+        ),
       },
       {
         path: "*",

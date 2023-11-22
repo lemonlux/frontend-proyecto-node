@@ -35,9 +35,10 @@ useErrorLogin(res, setRes, login, setLoginOk)
 }, [res])
 
 useEffect(() =>{
+  console.log('me lanzo useEffect')      //!! este useEffect se lanza cuando se monta el componente de login - si hay algunos datos almacenados en el localStorage los va a borrar
   setUser(()=> null) //el estado no me pertenece, le pertenece al padre de esta funcion --- useAuth(), por lo que mejor usar una callback
   localStorage.removeItem('user')
-})
+}, [])              
 
 //!--- gestion de los estados de navegacion
 if(okLogin){
@@ -53,7 +54,7 @@ if(okLogin){
   return (
     <>
       <div className="form-wrap">
-        <h1>Sign In</h1>
+        <h1>Log in</h1>
         <p>We are happy to see you again 💌</p>
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="email_container form-group">
@@ -106,7 +107,7 @@ if(okLogin){
       </div>
       <div className="footerForm">
         <p className="parrafoLogin">
-          Are you not registered? <Link to="/register">Register Here</Link>
+          Not a member? <Link to="/redirectRegister">Register Here</Link>
         </p>
       </div>
     </>
