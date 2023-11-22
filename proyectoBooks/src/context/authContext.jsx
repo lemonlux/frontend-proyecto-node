@@ -11,7 +11,7 @@ const [user, setUser] = useState(()  =>{
 return user ? JSON.parse(user) : null
 })
 
-const [allUsers, setAllUsers ] = useState({
+const [allUser, setAllUser ] = useState({
     data: {
         confirmationCode: '',
         user:{
@@ -27,8 +27,8 @@ const bridgeData = (state) =>{
     const parseData = JSON.parse(data)
     console.log(parseData)
     switch (state) {
-        case 'ALLUSER':
-            setAllUsers(parseData)
+        case 'registerOK':
+            setAllUser(parseData)
             localStorage.removeItem('data')
             break;
     
@@ -52,8 +52,8 @@ const logout = () =>{
 
 
 const value = useMemo (()=>({
-    user, setUser, login, logout, allUsers, setAllUsers, bridgeData
-}), [user])
+    user, setUser, login, logout, allUser, setAllUser, bridgeData
+}), [user, allUsers])
 
 
 

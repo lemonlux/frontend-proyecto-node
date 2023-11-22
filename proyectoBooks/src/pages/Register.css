@@ -43,9 +43,9 @@ p{
   flex-wrap: nowrap;
 }
 
-input[type="radio"] {
+/* input[type="radio"] {
   display: none;
-}
+} */
 
 & .hombre, .mujer, .nobinario{
   border-radius: 3px;
@@ -59,14 +59,14 @@ input[type="radio"] {
   text-align: center;
   width: 49.5%;
 }
-/* 
-input[type="radio"]:focus{
+
+/* input[type="radio"]:focus{
   background: #8b2745;
-}
+} */
 
 input[type="radio"]:checked + .label-radio {
   background: #8b2745;
-} */
+}
 
 .file{
   display: flex;
