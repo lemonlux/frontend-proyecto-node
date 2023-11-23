@@ -169,7 +169,7 @@ console.log(allUser.data.user.userEmail)
 
           <p className="bottom-text">
             <small>
-              If the code is not correct ❌, your user will be deleted from the
+              If the code is not correct, your user will be deleted from the
               database and you will need to register again.{" "}
             </small>
           </p>

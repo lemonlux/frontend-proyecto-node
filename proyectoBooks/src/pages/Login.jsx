@@ -98,7 +98,7 @@ if(okLogin){
           <p className="bottom-text">
             <small>
               Have you forgotten the password?
-              <Link to="/forgotpassword" className="anchorCustom">
+              <Link to="/password/setNewPassword" className="anchorCustom">
                 Change password
               </Link>
             </small>
