@@ -107,7 +107,7 @@ if(okLogin){
       </div>
       <div className="footerForm">
         <p className="parrafoLogin">
-          Not a member? <Link to="/redirectRegister">Register Here</Link>
+          Not a member? <Link to="/register">Register Here</Link>
         </p>
       </div>
     </>

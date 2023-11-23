@@ -12,8 +12,8 @@ export const useErrorRegister = (res, setOk, setRes) => {
     setOk(() => true);
     Swal.fire({
     icon: 'success',
-      title: 'Login succesful✅',
-      text: 'please check your email to verify your account',
+      title: 'Register succesful✅',
+      text: 'please verify your account',
       showConfirmButton: false,
       timer: 3000,
     });

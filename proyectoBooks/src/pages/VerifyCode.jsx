@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, Navigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
-import { useErrorVerifyCode, useAutoLogin } from '../hooks/index';
+import { useErrorVerifyCode, useAutoLogin, useErrorResendCode } from '../hooks/index';
 
 
 export const VerifyCode = () => {
@@ -41,7 +41,6 @@ console.log(allUser.data.user.userEmail)
     setSend(false)
 
 
-
   }else{ //si si tenemos localStorage--- estamos entrando por el login
     //en el localStorage la info es string -- para setear hay que hacerlo en parse
     const parseUser = JSON.parse(userLocal)
@@ -56,8 +55,34 @@ console.log(allUser.data.user.userEmail)
   }
 }
 
-//esto ya lo haremos
-  const handleReSend = async () => {};
+//! segunda funcion que gestiona datos
+  const handleResend = async () => {
+    const userLocal = localStorage.getItem('user')
+    if (userLocal != null ){   //ha entrado por el login
+      
+      const parseUser = JSON.parse(userLocal)
+      console.log('entro por el login en el resend', parseUser.email)
+      const customFormData = {
+        userEmail: parseUser.email
+      }
+
+      setSend(true)
+      setResResend( await resendConfirmationCode(customFormData))
+      setSend(false)
+
+    }else{    //del register ---- allUser --- ya parseada
+      const customFormData = {
+        userEmail: allUser?.data?.user?.userEmail
+      }
+
+      setSend(true)
+      setResResend( await resendConfirmationCode(customFormData))
+      setSend(false)
+
+    }
+
+
+  };
 
   //! ---- useEffects que gestionan errores
 
@@ -74,9 +99,12 @@ console.log(allUser.data.user.userEmail)
   }, [res])
 
   useEffect(() => {
-    console.log("😃", resResend);
+    useErrorResendCode( resResend,
+      setResResend,
+      setUserNotFound)
   }, [resResend]);
 
+  //! ----- gestion de los datos de navegación
 
   if(okVerify){ //esto lo ha seteado el hook de gestion de errores si da una respuesta 200
       /// aqui vamos a hacer  el autologin para cuando viene del register
@@ -87,14 +115,25 @@ console.log(allUser.data.user.userEmail)
         return <Navigate to="/dashboard" />;
       }
     }
+
+    if(okDeleteUser){
+      return <Navigate to='/register'/>
+    }
+
+    if(userNotFound){
+      return <Navigate to='/login'/>
+    }
   
   return (
     <>
       <div className="form-wrap">
-        <h1>Verify your code 👌</h1>
-        <p>Write the code sent to your email</p>
+        <h1>Verify your email</h1>
+        <p>Please enter the 6-digit code that was sent to your email</p>
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="user_container form-group">
+          <label htmlFor="custom-input" className="custom-placeholder">
+              Verification code
+            </label>
             <input
               className="input_user"
               type="text"
@@ -103,9 +142,6 @@ console.log(allUser.data.user.userEmail)
               autoComplete="false"
               {...register("confirmationCode", { required: false })}
             />
-            <label htmlFor="custom-input" className="custom-placeholder">
-              Registration code
-            </label>
           </div>
 
           <div className="btn_container">
@@ -116,7 +152,7 @@ console.log(allUser.data.user.userEmail)
               disabled={send}
               style={{ background: send ? "#49c1a388" : "#49c1a2" }}
             >
-              Verify Code
+              Submit
             </button>
           </div>
           <div className="btn_container">
@@ -125,7 +161,7 @@ console.log(allUser.data.user.userEmail)
               className="btn"
               disabled={send}
               style={{ background: send ? "#49c1a388" : "#49c1a2" }}
-              onClick={() => handleReSend()}
+              onClick={() => handleResend()}
             >
               Resend Code
             </button>
