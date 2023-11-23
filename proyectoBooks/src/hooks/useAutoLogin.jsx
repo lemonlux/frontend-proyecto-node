@@ -2,23 +2,25 @@ import { Navigate } from "react-router-dom";
 import { autoLoginUser } from "../services/user.service";
 
 export const useAutoLogin = async (allUser, userLogin) => {
+  console.log('entro en el autologin')
   try {
-    const { password, email } = allUser?.data?.user;
+    const { password, userEmail } = allUser?.data?.user;
     const customFormData = {
-      email,
+      userEmail,
       password,
     };
 
     const sendData = await autoLoginUser(customFormData);
 
     if (sendData?.status == 200) {
-      const { name, email, image, check } = sendData?.data?.user;
+      console.log('200', sendData)
+      // const { userName, userEmail, image, check } = sendData?.data?.user;
       const userCustom = {
         token: sendData.data.token,
-        user: name,
-        email,
-        image,
-        check,
+        user: sendData.data.user.userName,
+        email: sendData.data.user.userEmail,
+        image: sendData.data.user.image,
+        check: sendData.data.user.check,
         _id: sendData.data.user._id,
       };
 

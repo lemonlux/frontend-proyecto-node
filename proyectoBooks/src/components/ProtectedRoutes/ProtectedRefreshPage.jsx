@@ -9,10 +9,10 @@ export const ProtectedRefreshPage = ({ children }) => {
     return <Navigate to='/dashboard'/>
 
   }
-  if ( user == null && allUser.data.confirmationCode == ''){
+  if ( user == null && allUser.data.confirmationCode === ''){
     return <Navigate to='/login'/>
   }
-  
+
     return children
   
 }

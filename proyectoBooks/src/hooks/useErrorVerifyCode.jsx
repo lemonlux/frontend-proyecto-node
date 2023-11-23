@@ -47,58 +47,57 @@ export const useErrorVerifyCode = (
       });
     }
   
-    //TODO ----------------------- PENDIENTE DE EXPLICAR ESTOS ERRRORES ----------------------------------
     // -------------- 200 test = false
   
-    if (res?.data?.testCheckOk?.toString() == "false") {
+    if (res?.data?.testCheckUser?.toString() == "false") {
       // el codigo si era correcto pero el actualizar en el back el check no se ha producido correctamente
       setRes(() => ({}));
       Swal.fire({
         icon: "error",
-        title: "Interval server error ❎.",
-        text: "No delete user. Try again, please.",
+        title: "Interval server error",
+        text: "There has been an error verifying your code. Please, try again.",
         showConfirmButton: false,
-        timer: 2500,
+        timer: 3000,
       });
     }
   
     // -------------- 200: delete: 'ok delete user'
-    if (res?.data?.delete?.includes("ok delete user")) {
+    if (res?.data?.delete?.toString() == "true") {
       // esto le enviamos al register porque le henmos borrrado el usuario
       setOkDeleteUser(() => true);
       setRes(() => ({}));
       Swal.fire({
         icon: "error",
-        title: "No correct Code ❎.",
-        text: "Your user is delete. Register again, please.",
+        title: "This code is not correct",
+        text: "Your user has been deleted. Please, register and verify your code",
         showConfirmButton: false,
-        timer: 2500,
+        timer: 3000,
       });
     }
   
     // ------------- 200: delete: 'error delete user'
-    if (res?.data?.delete?.includes("error delete user")) {
+    if (res?.data?.delete?.toString() == "false") {
       setRes(() => ({}));
       Swal.fire({
         icon: "error",
-        title: "No correct Code ❎.",
-        text: "No delete user. Try again, please.",
+        title: "This code is not correct",
+        text: "Please, try again",
         showConfirmButton: false,
-        timer: 2500,
+        timer: 3000,
       });
     }
   
     // ------------- userNoFound ---> 404
   
-    if (res?.response?.status == 404) {
+    if (res?.response?.data?.includes('This user does not exist')) {
       setUserNotFound(() => true);
       setRes(() => ({}));
       Swal.fire({
         icon: "error",
-        title: "Interval server error ❎.",
-        text: "No delete user. Try again, please.",
+        title: "Interval server error",
+        text: "This user does not exist in our database",
         showConfirmButton: false,
-        timer: 1500,
+        timer: 3000,
       });
     }
   };

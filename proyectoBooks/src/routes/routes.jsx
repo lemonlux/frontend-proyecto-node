@@ -19,15 +19,15 @@ export const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/redirectRegister",
+        path: "/register",
         element: <Register />,
       },
       {
         path: "/verify",
         element: (
-          //  <ProtectedRefreshPage>
+           <ProtectedRefreshPage>
             <VerifyCode />
-          //  </ProtectedRefreshPage>
+          </ProtectedRefreshPage>
         ),
       },
       {

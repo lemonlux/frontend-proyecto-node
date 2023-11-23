@@ -30,7 +30,7 @@ const formSubmit = async (formData) =>{
 //!--- useEffects que gestionan los errores
 
 useEffect(() =>{
-console.log(res)
+console.log(res)  //!!!! esto haylo que borrarlo eeeee
 useErrorLogin(res, setRes, login, setLoginOk)
 }, [res])
 

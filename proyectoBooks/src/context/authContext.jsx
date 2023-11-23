@@ -39,6 +39,7 @@ const bridgeData = (state) =>{
 
 
 const login = (data) =>{   // la data se recibe aquí como STRING, si la recibieramos como PARSE hay que hacer JSON.stringify(data)
+    console.log('entro al login')
     localStorage.setItem('user', data)
     const parseData = JSON.parse(data)
     setUser(parseData)
