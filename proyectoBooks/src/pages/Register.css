@@ -10,13 +10,16 @@ h1{
 p{
   font-size: 14px;
 }
+.h1-account{
+  font-size: 20px;
+}
 
 .form{
   padding: 1rem;
   max-width: 30vw;
   max-height: 70vh;
-  min-width: 400px;
-  min-height: 500px;
+  min-width: 350px;
+  min-height: 600px;
  font-family: 'Manrope', sans-serif;
  background-color: #FFFFFF;
  border: 1px solid rgb(246, 230, 233) ;
@@ -38,9 +41,8 @@ p{
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 20px;
-  margin-top: 20px;
   flex-wrap: nowrap;
+  margin: 1rem 0 0 0;
 }
 
 /* input[type="radio"] {
@@ -51,21 +53,40 @@ p{
   border-radius: 3px;
 }
 
+label{
+  font-size: 15px;
+}
+
 
 .label-radio {
   background: #EE5684;
   color: #fff;
   padding: 10px;
+  border-radius: 10px;
   text-align: center;
   width: 49.5%;
 }
+
+.mujer{
+  padding: 10px 25px
+}
+.hombre{
+  padding: 10px 16px
+}
+.no-binario{
+  padding: 10px 12px
+}
+
+/* input[type="radio"] {
+  display: none;
+} */
 
 /* input[type="radio"]:focus{
   background: #8b2745;
 } */
 
-input[type="radio"]:checked + .label-radio {
-  background: #8b2745;
+input[type="radio"]:checked + #genderid{
+  background-color: #8b2745; 
 }
 
 .file{
@@ -104,7 +125,7 @@ background-color: #bf3a62;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 1rem;
+  margin: 0.5rem 1rem;
 }
 
 

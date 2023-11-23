@@ -65,7 +65,7 @@ export const Register = () => {
   return (
     <>
       <div className="form form-div">
-        <h1>Create an account</h1>
+        <h1 className="h1-account">Create an account</h1>
         <p>
           Already a member? <Link to="/login">Log in</Link>
         </p>
@@ -115,7 +115,7 @@ export const Register = () => {
               Género
               <div className="container-div genders" id="gender-div">
                 <div className="gender hombre-div">
-                  <label htmlFor="hombre" className="label-radio hombre">
+                  <label htmlFor="hombre" className="label-radio hombre" id='genderid'> 
                     Hombre
                   </label>
                   <input
@@ -124,10 +124,11 @@ export const Register = () => {
                     id="hombre"
                     value="hombre"
                     {...register("gender")}
+                    onClick={console.log('clico hombre')}
                   />
                 </div>
                 <div className="gender mujer-div">
-                  <label htmlFor="mujer" className="label-radio mujer">
+                  <label htmlFor="mujer" className="label-radio mujer" id='genderid'>
                     Mujer
                   </label>
                   <input
@@ -142,6 +143,7 @@ export const Register = () => {
                   <label
                     htmlFor="no binario"
                     className="label-radio no-binario"
+                    id='genderid'
                   >
                     No binario
                   </label>
