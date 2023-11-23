@@ -22,7 +22,7 @@ export const useErrorVerifyCode = (
   
     // ------------------------- 200 test todo correcto
   
-    if (res?.data?.testCheckOk?.toString() == "true") {
+    if (res?.data?.testCheckUser?.toString() == "true") {
         console.log(res.data)
       /// si viene del login -- viene del localStorage -> modificamos el estado de user del contexto para poner el check en true
       if (localStorage.getItem("user")) {

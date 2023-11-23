@@ -3,9 +3,11 @@ import Swal from "sweetalert2/dist/sweetalert2.all.js"
 
 
 export const useErrorRegister = (res, setOk, setRes) => {
-    console.log('entro en useError', res)
+    console.log(res)
   //! ------------------ 200 : todo ok
   if (res?.status == 200) {
+    const dataToString = JSON.stringify(res);
+    localStorage.setItem("data", dataToString);
     console.log('200')
     setOk(() => true);
     Swal.fire({

@@ -30,12 +30,12 @@ const formSubmit = async (formData) =>{
   const userLocal = localStorage.getItem('user')      // si el user ha entrado por el login
 
   if (userLocal == null){ //si no existe, lo buscamos por el register --- allUser
-
+console.log(allUser.data.user.userEmail)
     const customFormData = {
       confirmationCode: parseInt(formData.confirmationCode),   //hay que convertirlo a numero -> nos llega por el formulario
-      email: allUser.data.user.email  //el email no nos llega por el formulario, pero lo tendremos seteado
+      userEmail: allUser.data.user.userEmail  //el email no nos llega por el formulario, pero lo tendremos seteado
     }
-
+    // console.log('entro'. allUser.data.user.userEmail)
     setSend(true)
     setRes( await verifyConfirmationCode(customFormData))
     setSend(false)
@@ -47,7 +47,7 @@ const formSubmit = async (formData) =>{
     const parseUser = JSON.parse(userLocal)
     const customFormData = {
       confirmationCode: parseInt(formData.confirmationCode), // lo que nos lleva por el formulario
-      email: parseUser.email
+      userEmail: parseUser.email
     }
     setSend(true)
     setRes( await verifyConfirmationCode(customFormData))
