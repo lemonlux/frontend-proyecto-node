@@ -13,6 +13,8 @@ export const Register = () => {
   const [send, setSend] = useState(false); //estado de cargando
   const [okRegister, setOkRegister] = useState(false); //estado de navegacion
 
+  const [gender, setGender] = useState("")
+
   //!--2-- llamadas a los hooks
 
   const { allUser, setAllUser, bridgeData } = useAuth();
@@ -113,56 +115,68 @@ export const Register = () => {
           <div className="container-div form-div gender-div">
             <label htmlFor="custom-input" className="label-gender">
               Género
+             
               <div className="container-div genders" id="gender-div">
-                <div className="gender hombre-div">
-                  <label htmlFor="hombre" className="label-radio hombre" id='genderid'> 
-                    Hombre
-                  </label>
-                  <input
+                {/* <div className="gender hombre-div"> */}
+                <input
+                  className="input-gender"
                     type="radio"
                     name="gender"
                     id="hombre"
                     value="hombre"
                     {...register("gender")}
-                    onClick={console.log('clico hombre')}
                   />
-                </div>
-                <div className="gender mujer-div">
-                  <label htmlFor="mujer" className="label-radio mujer" id='genderid'>
-                    Mujer
+                  <label htmlFor="hombre" className="label-radio hombre" id='genderid'> 
+                    {''}Hombre{''}
                   </label>
-                  <input
+ 
+                {/* </div>
+                <div className="gender mujer-div"> */}
+                 <input
+                  className="input-gender"
                     type="radio"
                     name="gender"
                     id="mujer"
                     value="mujer"
                     {...register("gender")}
                   />
-                </div>
-                <div className="gender nobinario-div">
-                  <label
-                    htmlFor="no binario"
-                    className="label-radio no-binario"
-                    id='genderid'
-                  >
-                    No binario
+                  <label htmlFor="mujer" className="label-radio mujer" id='genderid'>
+                  {''} Mujer{''}
                   </label>
-                  <input
+
+                {/* </div>
+                <div className="gender nobinario-div"> */}
+                   <input
+                  className="input-gender"
                     type="radio"
                     name="gender"
                     id="no-binario"
                     value="no binario"
                     {...register("gender")}
                   />
-                </div>
+                  <label
+                    htmlFor="otro"
+                    className="label-radio no-binario"
+                    id='genderid'
+                  >Otro
+                  </label>
+                  {/* <input
+                  className="input-gender"
+                    type="radio"
+                    name="gender"
+                    id="no-binario"
+                    value="no binario"
+                    {...register("gender")}
+                  /> */}
+ 
+                {/* </div> */}
               </div>
-            </label>
+              </label>
           </div>
           <div className="container-div form-div file">
             <UploadFile />
           </div>
           <div className="btn-div container-div">
-            {console.log(send)}
             <button
               className={send ? "btn btn-sent" : "btn btn-notsent"}
               type="submit"

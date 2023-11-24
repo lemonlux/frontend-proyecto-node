@@ -35,19 +35,6 @@ p{
 }
 
 
-#gender-div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  margin: 1rem 0 0 0;
-}
-
-/* input[type="radio"] {
-  display: none;
-} */
 
 & .hombre, .mujer, .nobinario{
   border-radius: 3px;
@@ -61,33 +48,32 @@ label{
 .label-radio {
   background: #EE5684;
   color: #fff;
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
   text-align: center;
-  width: 49.5%;
+  width: 33%;
 }
 
-.mujer{
-  padding: 10px 25px
-}
-.hombre{
-  padding: 10px 16px
-}
-.no-binario{
-  padding: 10px 12px
+#gender-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row
 }
 
-/* input[type="radio"] {
+.input-gender{
   display: none;
-} */
-
-/* input[type="radio"]:focus{
-  background: #8b2745;
-} */
-
-input[type="radio"]:checked + #genderid{
-  background-color: #8b2745; 
 }
+
+#genderid{
+  font-size: 12px;
+}
+
+
+.input-gender:checked + #genderid{
+background-color: #8b2745
+}
+
 
 .file{
   display: flex;
@@ -95,9 +81,9 @@ input[type="radio"]:checked + #genderid{
   align-items: center;
 }
 
-input{
+/* input{
   height: 2rem;
-}
+} */
 
 .btn{
   height: 2.5rem;

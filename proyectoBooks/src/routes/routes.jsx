@@ -8,6 +8,8 @@ import {
   NotFound,
   Profile,
   VerifyCode,
+  AccountSettings,
+  EditProfile,
 } from "../pages/zindex";
 import App from "../App";
 import { ProtectedNotVerified, ProtectedRefreshPage } from "../components/zindex";
@@ -57,20 +59,20 @@ export const router = createBrowserRouter([
         <Profile />
            </ProtectedNotVerified>
         ),
-        // children: [
-        //   {
-        //     path: "/profile/changePassword",
-        //     element: , // changePassword
-        //   },
-        //   {
-        //     path: "/profile/",
-        //     element: , //delete
-        //   },
-        //   {
-        //     path: "/profile/",
-        //     element: , //update user
-        //   },
-        // ],
+        children: [
+          {
+            path: "/profile/settings",
+            element: <AccountSettings/> , // changePassword
+          },
+          {
+            path: "/profile/edit",
+            element: <EditProfile /> , //update user
+          },
+          // {
+          //   path: "/profile/favourites",
+          //   element: <Myfavourites /> , //update user
+          // },
+        ],
       },
       {
         path: "*",
