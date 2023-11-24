@@ -34,6 +34,20 @@ export const useErrorRegister = (res, setOk, setRes) => {
     setRes({});
   }
 
+  //!----------------- missing gender
+
+  if (res?.response?.data?.includes('User validation failed: gender:')) {
+    console.log('entro en el gender')
+    Swal.fire({
+      icon: "error",
+      title: "Gender is a required field",
+      text: "Please choose a valid gender",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+    setRes({});
+  }
+
   //! ------------------- La contraseña no esta en el formato correcto
   if (res?.response?.data?.includes("User validation failed: password:")) {
     console.log('password')

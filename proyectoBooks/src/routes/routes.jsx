@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/password/setNewPassword",
+        path: "/setNewPassword",
         element: <ForgotPassword />,
       },
       {
@@ -57,6 +57,20 @@ export const router = createBrowserRouter([
         <Profile />
            </ProtectedNotVerified>
         ),
+        // children: [
+        //   {
+        //     path: "/profile/changePassword",
+        //     element: , // changePassword
+        //   },
+        //   {
+        //     path: "/profile/",
+        //     element: , //delete
+        //   },
+        //   {
+        //     path: "/profile/",
+        //     element: , //update user
+        //   },
+        // ],
       },
       {
         path: "*",

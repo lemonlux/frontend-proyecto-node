@@ -39,7 +39,8 @@ if(ok){
 return (
   <>
   <div className="form-wrap">
-    <h1>Change your password 💱</h1>
+    <h1>Forgot password?</h1>
+    <p className="bottom-text">Don't worry! We will send you a new one to your email</p>
 
     <form onSubmit={handleSubmit(formSubmit)}>
       <div className="user_container form-group">
@@ -63,12 +64,12 @@ return (
           disabled={send}
           style={{ background: send ? "#49c1a388" : "#49c1a2" }}
         >
-          Change password
+          Get new password
         </button>
       </div>
 
       <p className="bottom-text">
-        <small>Enter your email to send you the new password 💌</small>
+        <small>Please set a new password as soon as you log into your account. </small>
       </p>
     </form>
   </div>
