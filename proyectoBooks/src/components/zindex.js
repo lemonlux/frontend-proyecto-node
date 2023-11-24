@@ -1,3 +1,6 @@
 export * from './UploadFile'
 export * from './ProtectedRoutes/ProtectedNotVerified'
 export * from './ProtectedRoutes/ProtectedRefreshPage'
+export * from './Footer'
+export * from './Header'
+export * from './NavProfile'
