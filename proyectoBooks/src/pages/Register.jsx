@@ -114,7 +114,7 @@ export const Register = () => {
 
           <div className="container-div form-div gender-div">
             <label htmlFor="custom-input" className="label-gender">
-              Género
+              Gender
              
               <div className="container-div genders" id="gender-div">
                 {/* <div className="gender hombre-div"> */}
@@ -127,7 +127,7 @@ export const Register = () => {
                     {...register("gender")}
                   />
                   <label htmlFor="hombre" className="label-radio hombre" id='genderid'> 
-                    {''}Hombre{''}
+                    {''}Man{''}
                   </label>
  
                 {/* </div>
@@ -141,7 +141,7 @@ export const Register = () => {
                     {...register("gender")}
                   />
                   <label htmlFor="mujer" className="label-radio mujer" id='genderid'>
-                  {''} Mujer{''}
+                  {''}Woman{''}
                   </label>
 
                 {/* </div>
@@ -158,7 +158,7 @@ export const Register = () => {
                     htmlFor="otro"
                     className="label-radio no-binario"
                     id='genderid'
-                  >Otro
+                  >Nonbinary
                   </label>
                   {/* <input
                   className="input-gender"

@@ -55,9 +55,12 @@ if(okLogin){
     <>
       <div className="form-wrap">
         <h1>Log in</h1>
-        <p>We are happy to see you again 💌</p>
+        <p>to your account</p>
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="email_container form-group">
+          <label htmlFor="custom-input" className="custom-placeholder">
+              Email
+            </label>
             <input
               className="input_user"
               type="email"
@@ -66,11 +69,12 @@ if(okLogin){
               autoComplete="false"
               {...register("userEmail", { required: true })}
             />
-            <label htmlFor="custom-input" className="custom-placeholder">
-              email
-            </label>
+
 
             <div className="password_container form-group">
+            <label htmlFor="custom-input" className="custom-placeholder">
+              Password
+              </label>
               <input
                 className="input_user"
                 type="password"
@@ -79,9 +83,7 @@ if(okLogin){
                 autoComplete="false"
                 {...register("password", { required: true })}
               />
-              <label htmlFor="custom-input" className="custom-placeholder">
-                password
-              </label>
+
             </div>
           </div>
 
@@ -92,14 +94,13 @@ if(okLogin){
               disabled={send}
               style={{ background: send ? "#49c1a388" : "#49c1a2" }}
             >
-              LOGIN
+              Log in
             </button>
           </div>
           <p className="bottom-text">
             <small>
-              Have you forgotten the password?
               <Link to="/setNewPassword" className="anchorCustom">
-                Change password
+                Forgot password?
               </Link>
             </small>
           </p>
