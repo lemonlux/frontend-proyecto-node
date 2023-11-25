@@ -82,7 +82,7 @@ export const updateUser = async (formData) => {
 //! -------------------------- DELETE USER ------------------------------
 
 export const deleteUser = async (formData) => {
-  return APIUser.patch("/users/", formData, {
+  return APIUser.delete("/users/", formData, {
     headers: {
       Authorization: `Bearer ${updateToken()}`,
     },

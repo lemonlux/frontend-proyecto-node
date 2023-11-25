@@ -8,22 +8,21 @@ export const useDeleteUser = (setUser, setDeleteUser) => {
           icon: "warning",
           showCancelButton: true,
           confirmButtonColor: "#DB3236",
-          cancelButtonColor: "#d33",
+          cancelButtonColor: "#8E8F91",
           confirmButtonText: "Delete account",
         }).then(async (result) => {
           console.log("result", result);
       
           if (result.isConfirmed) {
             const res = await deleteUser();
-      
+      console.log(res)
             switch (res.status) {
               case 200:
                 Swal.fire({
                   icon: "success",
-                  title: "Delete User",
-                  text: "See you soon",
+                  title: "This user has been deleted",
                   showConfirmButton: false,
-                  timer: 1500,
+                  timer: 3000,
                 });
       
                 setUser(() => null);
@@ -35,10 +34,10 @@ export const useDeleteUser = (setUser, setDeleteUser) => {
               default:
                 Swal.fire({
                   icon: "error",
-                  title: "No delete User ❎",
+                  title: "There was an error deleting your user",
                   text: "Please, try again",
                   showConfirmButton: false,
-                  timer: 1500,
+                  timer: 3000,
                 });
       
                 break;

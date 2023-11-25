@@ -1,7 +1,7 @@
 import './UserProfileData.css'
 
 export const UserProfileData = (user) => {
-console.log(user.user.image)
+    console.log(user.user.gender)
     return (
         <div className='info-user'>
         <figure className='profile-picture'>

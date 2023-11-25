@@ -40,6 +40,7 @@ const formSubmit = async (formData) =>{
   }).then(async (result) => {
     if (result.isConfirmed) {
       const inputFile = document.getElementById("file-upload").files;
+      console.log(inputFile, inputFile[0])
 
       if (inputFile.length != 0) {  // mismo customFormData que en el login
         const customFormData = {
@@ -53,6 +54,7 @@ const formSubmit = async (formData) =>{
       } else {
         const customFormData = {
           ...formData,
+          image: user.image,
         };
         setSend(true);
         setRes(await updateUser(customFormData));
@@ -70,7 +72,6 @@ useEffect(() =>{
 
 
 
-console.log(user.image)
 
   return (
     <>
@@ -107,7 +108,7 @@ console.log(user.image)
               <div className="container-div genders" id="gender-div">
    
                 <input
-                  className="input-gender"
+                  className="input--gender"
                     type="radio"
                     name="gender"
                     id="hombre"
@@ -119,7 +120,7 @@ console.log(user.image)
                   </label>
  
                  <input
-                  className="input-gender"
+                  className="input--gender"
                     type="radio"
                     name="gender"
                     id="mujer"
@@ -131,7 +132,7 @@ console.log(user.image)
                   </label>
 
                    <input
-                  className="input-gender"
+                  className="input--gender"
                     type="radio"
                     name="gender"
                     id="no-binario"

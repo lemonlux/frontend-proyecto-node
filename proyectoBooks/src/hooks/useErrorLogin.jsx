@@ -7,6 +7,8 @@ export const useErrorLogin = (res, setRes, userLogin, setLoginOk) =>{
     const dataCustom = {
       token: res.data.token,
       user: res.data.user.userName,
+      name: res.data.user.name,
+      gender: res.data.user.gender,
       email: res.data.user.userEmail,
       image: res.data.user.image,
       check: res.data.user.check,
