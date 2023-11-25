@@ -7,20 +7,21 @@ export const Header = () => {
   return (
     <>
     <header>
+
     <div className='logo-title header-div'>
+    <NavLink to='/'>
          <img
             src="https://res.cloudinary.com/daxddugwt/image/upload/v1700493960/1f4da_svtsai.png"
             alt="logo"
             className="logo"
           />
+         
             <h1 className="title-header header">Booki</h1>
+            </NavLink>
+    </div>  
 
-    </div>
     <nav>
 
-  <NavLink to='/'>
-    <h1 className='header'>Home</h1>
-  </NavLink>
 
   {user == null && (
   <NavLink to='/register'>

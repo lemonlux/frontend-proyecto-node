@@ -9,6 +9,7 @@ import { useDeleteUser } from '../hooks/index';
 import { UploadFile } from '../components/UploadFile';
 
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
+import { useErrorChangePassword } from '../hooks/useErrorChangePassword';
 
 
 
@@ -45,12 +46,18 @@ export const AccountSettings = () => {
         } else {
           Swal.fire({
             icon: "error",
-            title: "Passwords confirmation does not match",
+            title: "Passwords do not match",
+            text: "Your password and confirmation password must match",
             showConfirmButton: false,
             timer: 3000,
           });
         }
       };
+
+
+      useEffect(()=>{
+        useErrorChangePassword(res, setRes, setUser)
+      }, [res])
 
 
 
