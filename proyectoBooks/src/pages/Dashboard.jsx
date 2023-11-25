@@ -2,6 +2,12 @@ import './DashBoard.css'
 
 export const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div className='dashboard-div'>
+      <div className='separator-div'>
+        
+      </div>
+      <div className='separator-div'></div>
+
+    </div>
   )
 }

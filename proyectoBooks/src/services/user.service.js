@@ -57,8 +57,8 @@ export const setNewPasswordNoAuth = async (formData) => {
 
 //! ------------------------ CHANGE PASSWORD -------------------------------
 
-export const changePassword = async (formData) => {
-  return APIUser.patch("/users/modifyPassword", formData, {
+export const changePasswordAuth = async (formData) => {
+  return APIUser.patch('/users/settings/changePassword', formData, {
     headers: {
       Authorization: `Bearer ${updateToken()}`,
     },

@@ -75,16 +75,15 @@ useEffect(() =>{
 
   return (
     <>
-      <div className="containerProfile">
-        <div className="containerDataNoChange">
-          {/* <FigureUser user={user} /> */}
-        </div>
-        <div className="form-wrap formProfile">
+      <div className="container-div profile-fiv">
+            <div className='container-div profile-data'>
           <h1>Edit profile</h1>
           <p>Change your profile data </p>
 
             <UserProfileData user={user}/>
+            </div>
 
+            <div className="form-wrap formProfile">
           <form onSubmit={handleSubmit(formSubmit)}>
           <div className="user_container form-group">
             <label htmlFor="custom-input" className="label name">
@@ -161,9 +160,6 @@ useEffect(() =>{
             </div>
           </form>
             <div className="btn_container">
-              <button className='delete' onClick={()=> useDeleteUser(setUser, setDeleteUser)}>
-                Delete account
-              </button>
             </div>
         </div>
       </div>
