@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { Link, Navigate } from "react-router-dom";
 import { useErrorGetBooks } from '../hooks/useErrorGetBooks';
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
+import { BookCard } from '../components/BookCard';
 
 
 export const BookForm = () => {
@@ -30,6 +31,7 @@ export const BookForm = () => {
         fetch()
         }, [])
 
+
     if(res?.response?.status == 404 || res?.response?.status == 500 ){
         setState({ ...state, hasError: res?.response?.data, error: res?.response?.status, errorMessage: res?.response?.data })
         }
@@ -50,12 +52,12 @@ if(state.hasError){
   }
 
   if (state.data != null){
-    console.log(state.data)
+    console.log('entro', state.data.allBooks)
 
     return (
         <>
-        <h2>
-            
+        <h2> holaaaaaa
+        <BookCard books={state.data.allBooks}/>
         </h2>
         </>
     )
