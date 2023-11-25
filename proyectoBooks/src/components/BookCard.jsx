@@ -4,7 +4,7 @@ export const BookCard = ({ books }) => {
     <div className='book-card book-div'>
         {books.map((item) =>{
             return (
-                <>
+                <div className='primary div' key={item._id}>
                 <div className='title-book'>
                     <h3>{item.name}</h3>
                     {/* <h3>{item.authors}</h3> */}
@@ -14,7 +14,7 @@ export const BookCard = ({ books }) => {
                     <h4>Published in {item.published}</h4>
                     <h4>{item.pages} pages</h4>
                 </div>
-                </>
+                </div>
             )
         })}
     </div>

@@ -7,58 +7,54 @@ import { Link, Navigate } from "react-router-dom";
 import { useErrorGetBooks } from '../hooks/useErrorGetBooks';
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 import { BookCard } from '../components/BookCard';
+import { Loading } from '../components/Loading';
 
 
 export const BookForm = () => {
 
     const [res, setRes] = useState({}); //estado que setea la respuesta
-    const [state, setState] = useState({
-        data: null,
-        isLoading: null,
-        hasError: null,
-        error: null,
-        errorMessage: null,
-    })
+    const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState()
 
     const fetch = async () =>{
-        setState({ ...state, isLoading: true})
-        setRes( await getAllBooks())  //setear la respuesta con el servicio
-        setState({ ...state, data: res.data, isLoading: false})
+        const dataBook = await getAllBooks()
+        setRes(dataBook)  
+        setIsLoading(false)
       }
-
 
     useEffect(() =>{
         fetch()
         }, [])
 
 
+
     if(res?.response?.status == 404 || res?.response?.status == 500 ){
-        setState({ ...state, hasError: res?.response?.data, error: res?.response?.status, errorMessage: res?.response?.data })
+        setError(true)
         }
 
 
 console.log(res)
 
-if(state.isLoading){
-    return <h1>Loading ...</h1>
+if(isLoading){
+    return <Loading/>
 }
 
-if(state.hasError){
+if(error){
   return (
     <>
-    <h1>{state.error}</h1>
-    <p>{state.errorMessage}</p></>
+    <h1>{res?.response?.status}</h1>
+    <p>{res?.response?.data}</p></>
 )
   }
 
-  if (state.data != null){
-    console.log('entro', state.data.allBooks)
+  if (res.data != null){
+    console.log('entro', res.data.allBooks)
 
     return (
         <>
-        <h2> holaaaaaa
-        <BookCard books={state.data.allBooks}/>
-        </h2>
+        <div>
+        <BookCard books={res.data.allBooks} />
+        </div>
         </>
     )
 
