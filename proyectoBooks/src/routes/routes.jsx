@@ -10,6 +10,7 @@ import {
   VerifyCode,
   AccountSettings,
   EditProfile,
+  BookForm,
 } from "../pages/zindex";
 import App from "../App";
 import { ProtectedNotVerified, ProtectedRefreshPage } from "../components/zindex";
@@ -51,6 +52,11 @@ export const router = createBrowserRouter([
         <Dashboard />
            </ProtectedNotVerified>
         ),
+      },
+      {
+        path: "/books",
+        element:
+        <BookForm />,
       },
       {
         path: "/profile",

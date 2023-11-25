@@ -4,7 +4,7 @@ export const Dashboard = () => {
   return (
     <div className='dashboard-div'>
       <div className='separator-div'>
-        <Link to=''><h3 className='link-div'>Books</h3></Link>
+        <Link to='/books'><h3 className='link-div'>Books</h3></Link>
         <Link to=''><h3 className='link-div'>Authors</h3></Link>
         <Link to=''><h3 className='link-div'>Genres</h3></Link>
       </div>
