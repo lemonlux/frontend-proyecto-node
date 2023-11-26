@@ -13,7 +13,7 @@ export const NavProfile = () => {
 
 
   return (
-    <div>
+    <div className='nav-profile'>
         <Link to='/profile'>
         <div>Profile</div>
         </Link>

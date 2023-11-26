@@ -8,7 +8,7 @@ import { useErrorUpdate } from '../hooks/index';
 import { UploadFile, UserProfileData } from '../components/zindex';
 
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
-import { useDeleteUser } from '../hooks/useDeleteUser';
+
 
 
 

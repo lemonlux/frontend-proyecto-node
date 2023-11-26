@@ -1,0 +1,13 @@
+.book-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.primary-div{
+    padding: 1rem;
+    width: 200px;
+    height: 150px;
+}

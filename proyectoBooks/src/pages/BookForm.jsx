@@ -52,9 +52,8 @@ if(error){
 
     return (
         <>
-        <div>
+        
         <BookCard books={res.data.allBooks} />
-        </div>
         </>
     )
 

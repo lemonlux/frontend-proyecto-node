@@ -10,3 +10,18 @@ export const getAllBooks = async () => {
       .then((res) => res)
       .catch((error) => error);
   };
+
+
+
+  //! ---------------- ADD FAVOURITE BOOK -----------------------
+
+  export const addFavouriteBook = async (formData, book) => {
+    return APIUser.patch(`/books/addBook/${book}`, formData, {
+      headers: {
+        Authorization: `Bearer ${updateToken()}`,
+      },
+    })
+      .then((res) => res)
+      .catch((error) => error);
+  };
+

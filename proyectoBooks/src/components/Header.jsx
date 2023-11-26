@@ -9,13 +9,13 @@ export const Header = () => {
     <header>
 
     <div className='logo-title header-div'>
-    <NavLink to='/'>
+  
          <img
             src="https://res.cloudinary.com/daxddugwt/image/upload/v1700493960/1f4da_svtsai.png"
             alt="logo"
             className="logo"
           />
-         
+         <NavLink to='/'>
             <h1 className="title-header header">Booki</h1>
             </NavLink>
     </div>  

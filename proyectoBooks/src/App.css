@@ -19,3 +19,19 @@ body{
  justify-content: center;
  align-items: center;
 }
+
+
+main{
+    width: 100vw;
+    height: 75vh;
+}
+
+header{
+    width: 100vw;
+    height: 13vh;
+}
+
+footer{
+    width: 100vw;
+    height: 7vh;
+}
