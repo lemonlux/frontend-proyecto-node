@@ -15,7 +15,7 @@ export const BookForm = () => {
   const [resLike, setResLike] = useState({});
   const [like, setLike] = useState(false);
   const [likeOk, setLikeOk] = useState(false);
-  const [likedElement, setLikedElement] = useState(false);
+  const [likedElement, setLikedElement] = useState({});
 
   const fetch = async () => {
     console.log('se ejecuta el fetch')
@@ -27,7 +27,7 @@ export const BookForm = () => {
   // console.log(resFetch); //RES DEL FETCH
 
   const handleLike = async (idBook) => {
-    setLikedElement(false)
+    setLikedElement({})
     setResLike(await addFavouriteBook(idBook));
     setLike(true);
 
@@ -37,7 +37,7 @@ export const BookForm = () => {
       console.log(idBook, book._id, 'hoooolaaaa')
 
       if(idBook == book._id){
-        setLikedElement(true)
+        setLikedElement(book._id)
         console.log('likedElement', likedElement, user)
         fetch()
       }
@@ -54,6 +54,7 @@ export const BookForm = () => {
 
   useEffect(() => {
     fetch();
+    console.log('like', like)
     setLike(false);
     // console.log("cargando", isLoading);
     // console.log("reslike", resLike?.data?.userUpdated?.favBooks);
@@ -99,10 +100,10 @@ export const BookForm = () => {
                 </div>
                 <div>
                   <button
-                    className="like btn"
+                    className="like"
                     onClick={() => handleLike(item._id)}
                   >
-                    Like
+                  { likedElement == item._id ? '♥' : '♡'}
                   </button>
                 </div>
               </div>

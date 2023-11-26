@@ -26,7 +26,7 @@ export const NavProfile = () => {
         <div>Account settings</div>
         </Link>
 
-        <Link>
+        <Link to='/profile/favourites'>
         <div>My favourites</div>
         </Link>
 

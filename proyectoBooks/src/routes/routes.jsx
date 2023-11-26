@@ -11,6 +11,7 @@ import {
   AccountSettings,
   EditProfile,
   BookForm,
+  MyFavourites,
 } from "../pages/zindex";
 import App from "../App";
 import { ProtectedNotVerified, ProtectedRefreshPage } from "../components/zindex";
@@ -74,10 +75,10 @@ export const router = createBrowserRouter([
             path: "/profile/edit",
             element: <EditProfile /> , //update user
           },
-          // {
-          //   path: "/profile/favourites",
-          //   element: <Myfavourites /> , //update user
-          // },
+          {
+            path: "/profile/favourites",
+            element: <MyFavourites /> , //update user
+          },
         ],
       },
       {
