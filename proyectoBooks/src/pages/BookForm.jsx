@@ -1,10 +1,12 @@
-import { addFavouriteBook, getAllBooks } from "../services/book.service";
+import { deleteBook, getAllBooks } from "../services/book.service";
 import "./BookForm.css";
 import { useState, useEffect } from "react";
-
 import { Loading } from "../components/Loading";
 import { useAuth } from "../context/authContext";
-import { useErrorLikedBooks } from "../hooks/useErrorLikedBooks";
+import { useErrorLikedBooks, useErrorDelete } from "../hooks/index";
+import { addFavouriteBook } from "../services/user.service";
+
+
 
 export const BookForm = () => {
   const { likeItem, user } = useAuth();
@@ -16,6 +18,9 @@ export const BookForm = () => {
   const [like, setLike] = useState(false);
   const [likeOk, setLikeOk] = useState(false);
   const [likedElement, setLikedElement] = useState({});
+  const [deleted, setDeleted] = useState(false)
+  const [deleteRes, setDeleteRes] = useState({})
+
 
   const fetch = async () => {
     console.log('se ejecuta el fetch')
@@ -42,11 +47,23 @@ export const BookForm = () => {
         fetch()
       }
 
-
     })
 
-
   };
+
+
+const handleDelete = async (idBook) =>{
+setDeleteRes( await deleteBook(idBook))
+setDeleted(true)
+
+}
+
+useEffect(() => {
+ useErrorDelete( deleteRes, setDeleteRes)
+}, [deleteRes])
+
+
+
 
   useEffect(() => {
     useErrorLikedBooks(resLike, likeItem, setResLike, setLikeOk);
@@ -56,12 +73,13 @@ export const BookForm = () => {
     fetch();
     console.log('like', like)
     setLike(false);
+    setDeleted(false)
     // console.log("cargando", isLoading);
     // console.log("reslike", resLike?.data?.userUpdated?.favBooks);
-  }, [like]);
+  }, [like, deleted]);
 
 
-
+console.log(user.rol)
 
 
 
@@ -100,11 +118,17 @@ export const BookForm = () => {
                 </div>
                 <div>
                   <button
-                    className="like"
+                    className="like btn"
                     onClick={() => handleLike(item._id)}
                   >
                   { likedElement == item._id ? '♥' : '♡'}
                   </button>
+                  { user?.rol == 'admin' ? <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(item._id)}
+                  >
+                  Delete item
+                  </button> : null}
                 </div>
               </div>
             );

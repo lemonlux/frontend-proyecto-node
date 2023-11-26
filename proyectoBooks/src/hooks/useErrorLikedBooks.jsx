@@ -16,15 +16,16 @@ if (resLike?.status == 200){
         image: resLike.data.userUpdated.image,
         check: resLike.data.userUpdated.check,
         _id: resLike.data.userUpdated._id,
+        rol: resLike.data.userUpdated.rol,
     }
 
     const stringUser = JSON.stringify(dataCustom)
     likeItem(stringUser)
-
+    setLikeOk(true)
     setResLike(() => ({}));
 }
 
-if (resLike?.response?.status == 500) {
+if (resLike?.response?.status == 500 || resLike?.response?.status == 404 ) {
     setResLike(() => ({}));
     Swal.fire({
       icon: "error",

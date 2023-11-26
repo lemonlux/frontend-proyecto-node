@@ -13,15 +13,14 @@ export const getAllBooks = async () => {
 
 
 
-  //! ---------------- ADD FAVOURITE BOOK -----------------------
+//! -------------------------- DELETE USER ------------------------------
 
-  export const addFavouriteBook = async (idBook) => {
-    return APIUser.patch(`/users/addBook/${idBook}`, {
-      headers: {
-        Authorization: `Bearer ${updateToken()}`,
-      },
-    })
-      .then((res) => res)
-      .catch((error) => error);
-  };
-
+export const deleteBook = async (idBook) => {
+  return APIUser.delete(`/books/${idBook}`, {
+    headers: {
+      Authorization: `Bearer ${updateToken()}`,
+    },
+  })
+    .then((res) => res)
+    .catch((error) => error);
+};

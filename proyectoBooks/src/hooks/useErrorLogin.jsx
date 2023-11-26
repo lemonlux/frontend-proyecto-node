@@ -13,6 +13,7 @@ export const useErrorLogin = (res, setRes, login, setLoginOk) =>{
       image: res.data.user.image,
       check: res.data.user.check,
       _id: res.data.user._id,
+      rol: res.data.user.rol,
       favBooks: res.data.user.favBooks,
     };
 

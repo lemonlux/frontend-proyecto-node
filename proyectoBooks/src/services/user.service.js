@@ -90,3 +90,18 @@ export const deleteUser = async (formData) => {
     .then((res) => res)
     .catch((error) => error);
 };
+
+
+
+  //! ---------------- ADD FAVOURITE BOOK -----------------------
+
+  export const addFavouriteBook = async (idBook) => {
+    return APIUser.patch(`/users/addBook/${idBook}`, {
+      headers: {
+        Authorization: `Bearer ${updateToken()}`,
+      },
+    })
+      .then((res) => res)
+      .catch((error) => error);
+  };
+
