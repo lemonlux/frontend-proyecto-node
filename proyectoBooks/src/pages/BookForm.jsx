@@ -14,9 +14,10 @@ export const BookForm = () => {
     const [res, setRes] = useState({}); //estado que setea la respuesta
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState()
-    const [resLike, setResLike] = useState({})
+    const [resLike, setResLike] = useState(false)
 
     const fetch = async () =>{
+        setIsLoading(true)
         const dataBook = await getAllBooks()
         setRes(dataBook)  
         setIsLoading(false)
@@ -25,9 +26,9 @@ export const BookForm = () => {
 
 
       const handleLike = async (idBook) =>{
-          setLike(false)
         await addFavouriteBook(idBook)
-           setLike(true)
+           setResLike(true)
+           console.log('hola', resLike)
       }
       
        console.log
@@ -35,8 +36,9 @@ export const BookForm = () => {
 
     useEffect(() =>{
         fetch()
-        console.log('useEffect', like, user)
-        }, [like])
+        console.log('cargando',isLoading)
+        setResLike(false)
+        }, [resLike])
 
     if(res?.response?.status == 404 || res?.response?.status == 500 ){
         setError(true)
@@ -56,7 +58,6 @@ if(error){
   }
 
   if (res.data != null){
-    console.log('entro', res.data.allBooks)
 
     return (
         <>
