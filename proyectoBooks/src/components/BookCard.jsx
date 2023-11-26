@@ -1,5 +1,5 @@
 import './BookCard.css'
-import { LikedBook } from './zindex'
+import { useLikedBook } from '../hooks/index'
 
 export const BookCard = ({ books }) => {
   return (
@@ -17,7 +17,7 @@ export const BookCard = ({ books }) => {
                     <h4>{item.pages} pages</h4>
                 </div>
                 <div>
-            <button   className='like btn' onClick={() => LikedBook(item._id)}>Like</button>
+            <button   className='like btn' onClick={() => useLikedBook(item._id)}>Like</button>
         </div>
                 </div>
                 

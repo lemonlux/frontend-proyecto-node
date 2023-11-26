@@ -6,19 +6,10 @@ import { useAuth } from "../context/authContext";
 
 
 
-export const LikedBook = (idBook) => {
-
-
-
-    const formSubmit = (formData) =>{
-
-    }
+export const useLikedBook = (idBook, user) => {
 
 
 
 
 
-  return (
-    <div>LikedBook</div>
-  )
 }

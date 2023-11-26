@@ -13,6 +13,7 @@ export const useErrorLogin = (res, setRes, userLogin, setLoginOk) =>{
       image: res.data.user.image,
       check: res.data.user.check,
       _id: res.data.user._id,
+      favBooks: res.data.user.favBooks,
     };
 
     const stringUser = JSON.stringify(dataCustom);

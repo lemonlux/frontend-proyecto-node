@@ -112,6 +112,7 @@ useEffect(() =>{
                     name="gender"
                     id="hombre"
                     value="hombre"
+                    
                     {...register("gender")}
                   />
                   <label htmlFor="hombre" className="label-radio hombre" id='genderid'> 
