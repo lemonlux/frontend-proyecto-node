@@ -22,7 +22,7 @@ const [allUser, setAllUser] = useState({
 })
 
 const [deleteUser, setDeleteUser] = useState(false)
-
+const [like, setLike] = useState(false)
 
 const bridgeData = (state) =>{
     const data = localStorage.getItem('data') //data va en string
@@ -55,7 +55,7 @@ const logout = () =>{
 
 
 const value = useMemo (()=>({
-    user, setUser, login, logout, allUser, setAllUser, bridgeData, deleteUser, setDeleteUser
+    user, setUser, login, logout, allUser, setAllUser, bridgeData, deleteUser, setDeleteUser, like, setLike
 }), [user, allUser])
 
 

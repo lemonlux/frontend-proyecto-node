@@ -15,8 +15,8 @@ export const getAllBooks = async () => {
 
   //! ---------------- ADD FAVOURITE BOOK -----------------------
 
-  export const addFavouriteBook = async (formData, book) => {
-    return APIUser.patch(`/books/addBook/${book}`, formData, {
+  export const addFavouriteBook = async (idBook) => {
+    return APIUser.patch(`/users/addBook/${idBook}`, {
       headers: {
         Authorization: `Bearer ${updateToken()}`,
       },

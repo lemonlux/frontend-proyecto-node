@@ -1,7 +1,12 @@
 import './BookCard.css'
 import { useLikedBook } from '../hooks/index'
 
-export const BookCard = ({ books }) => {
+export const BookCard = ({ books, setLike, setResLike, resLike, like, setRes, useLikedBook }) => {
+
+
+
+
+
   return (
     <div className='book-card book-div'>
         {books.map((item) =>{
