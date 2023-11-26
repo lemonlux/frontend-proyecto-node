@@ -24,7 +24,6 @@ export const BookForm = () => {
       }
 
 
-
       const handleLike = async (idBook) =>{
         await addFavouriteBook(idBook)
            setResLike(true)
@@ -37,6 +36,7 @@ export const BookForm = () => {
     useEffect(() =>{
         fetch()
         console.log('cargando',isLoading)
+        console.log(res.data)
         setResLike(false)
         }, [resLike])
 
@@ -75,7 +75,7 @@ if(error){
                     <h4>{item.pages} pages</h4>
                 </div>
                 <div>
-            <button  className='like btn' onClick={() => handleLike(item._id, setLike, setResLike, resLike, like, setRes, fetch)}>Like</button>
+            <button  className='like btn' onClick={() => handleLike(item._id)}>Like</button>
         </div>
                 </div>
                 
