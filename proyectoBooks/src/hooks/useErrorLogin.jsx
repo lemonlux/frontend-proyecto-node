@@ -1,6 +1,6 @@
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 
-export const useErrorLogin = (res, setRes, userLogin, setLoginOk) =>{
+export const useErrorLogin = (res, setRes, login, setLoginOk) =>{
  //! -----------------200
 
   if (res?.status == 200) {  //si el login se hace correctamente, sacamos la data de la response
@@ -17,7 +17,7 @@ export const useErrorLogin = (res, setRes, userLogin, setLoginOk) =>{
     };
 
     const stringUser = JSON.stringify(dataCustom);
-    userLogin(stringUser); //tengo que enviarle al login el objeto hecho a string
+    login(stringUser); //tengo que enviarle al login el objeto hecho a string
     setLoginOk(() => true);
 }
 

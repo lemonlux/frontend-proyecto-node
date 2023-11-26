@@ -22,7 +22,6 @@ const [allUser, setAllUser] = useState({
 })
 
 const [deleteUser, setDeleteUser] = useState(false)
-const [like, setLike] = useState(false)
 
 const bridgeData = (state) =>{
     const data = localStorage.getItem('data') //data va en string
@@ -38,6 +37,15 @@ const bridgeData = (state) =>{
             break;
     }
 }
+
+const likeItem = (dataString) =>{
+    localStorage.removeItem('user')
+    localStorage.setItem('user', dataString)
+    const parseData = JSON.parse(dataString)
+    setUser(parseData)
+    
+}
+
 
 
 const login = (data) =>{   // la data se recibe aquí como STRING, si la recibieramos como PARSE hay que hacer JSON.stringify(data)
@@ -55,7 +63,7 @@ const logout = () =>{
 
 
 const value = useMemo (()=>({
-    user, setUser, login, logout, allUser, setAllUser, bridgeData, deleteUser, setDeleteUser, like, setLike
+    user, setUser, login, logout, allUser, setAllUser, bridgeData, deleteUser, setDeleteUser, likeItem
 }), [user, allUser])
 
 

@@ -18,10 +18,12 @@ export const useAutoLogin = async (allUser, userLogin) => {
       const userCustom = {
         token: sendData.data.token,
         user: sendData.data.user.userName,
+        gender: sendData.data.user.gender,
         email: sendData.data.user.userEmail,
         image: sendData.data.user.image,
         check: sendData.data.user.check,
         _id: sendData.data.user._id,
+        favBooks: sendData.data.user.favBooks,
       };
 
       const stringUser = JSON.stringify(userCustom);
