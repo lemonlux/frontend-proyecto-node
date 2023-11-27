@@ -53,30 +53,30 @@ if(okLogin){
 
   return (
     <>
-      <div className="form-wrap">
-        <h1>Log in</h1>
+      <div className="form-login form-div">
+        <h1 className='h1-account'>Log in</h1>
         <p>to your account</p>
         <form onSubmit={handleSubmit(formSubmit)}>
-          <div className="email_container form-group">
-          <label htmlFor="custom-input" className="custom-placeholder">
+          <div className="container-div form-div user">
+          <label htmlFor="custom-input" className="label username">
               Email
             </label>
             <input
-              className="input_user"
+              className="input-login input_user"
               type="email"
               id="email"
               name="email"
               autoComplete="false"
               {...register("userEmail", { required: true })}
             />
+            </div>
 
-
-            <div className="password_container form-group">
-            <label htmlFor="custom-input" className="custom-placeholder">
+            <div className="container-div form-div password">
+            <label htmlFor="custom-input" className="label password">
               Password
               </label>
               <input
-                className="input_user"
+                className="input-login input_user"
                 type="password"
                 id="password"
                 name="password"
@@ -85,14 +85,13 @@ if(okLogin){
               />
 
             </div>
-          </div>
 
-          <div className="btn_container">
+          <div className="btn-div container-div">
             <button
               className="btn"
               type="submit"
               disabled={send}
-              style={{ background: send ? "#49c1a388" : "#49c1a2" }}
+              style={{ background: send ? "#bf3a62" : "#EE5684" }}
             >
               Log in
             </button>
@@ -104,12 +103,12 @@ if(okLogin){
               </Link>
             </small>
           </p>
-        </form>
-      </div>
-      <div className="footerForm">
-        <p className="parrafoLogin">
+          <div className="footerForm">
+        <p className='not-div'>
           Not a member? <Link to="/register">Register Here</Link>
         </p>
+      </div>
+        </form>
       </div>
     </>
   );

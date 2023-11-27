@@ -6,8 +6,6 @@ import { useAuth } from "../context/authContext";
 import { useErrorLikedBooks, useErrorDelete } from "../hooks/index";
 import { addFavouriteBook } from "../services/user.service";
 
-
-
 export const BookForm = () => {
   const { likeItem, user } = useAuth();
 
@@ -18,52 +16,40 @@ export const BookForm = () => {
   const [like, setLike] = useState(false);
   const [likeOk, setLikeOk] = useState(false);
   const [likedElement, setLikedElement] = useState({});
-  const [deleted, setDeleted] = useState(false)
-  const [deleteRes, setDeleteRes] = useState({})
 
+  const [deleted, setDeleted] = useState(false);
+  const [deleteRes, setDeleteRes] = useState({});
 
   const fetch = async () => {
-    console.log('se ejecuta el fetch')
+    console.log("se ejecuta el fetch");
     setIsLoading(true);
     const dataBook = await getAllBooks();
     setResFetch(dataBook);
     setIsLoading(false);
   };
-  // console.log(resFetch); //RES DEL FETCH
 
   const handleLike = async (idBook) => {
-    setLikedElement({})
+    setLikedElement({});
     setResLike(await addFavouriteBook(idBook));
     setLike(true);
 
-
-    user.favBooks.forEach((book) =>{
-      console.log('book id', book._id)
-      console.log(idBook, book._id, 'hoooolaaaa')
-
-      if(idBook == book._id){
-        setLikedElement(book._id)
-        console.log('likedElement', likedElement, user)
-        fetch()
+    user.favBooks.forEach((book) => {
+      if (idBook == book._id) {
+        setLikedElement(book._id);
+        console.log("likedElement", likedElement, user);
+        fetch();
       }
-
-    })
-
+    });
   };
 
+  const handleDelete = async (idBook) => {
+    setDeleteRes(await deleteBook(idBook));
+    setDeleted(true);
+  };
 
-const handleDelete = async (idBook) =>{
-setDeleteRes( await deleteBook(idBook))
-setDeleted(true)
-
-}
-
-useEffect(() => {
- useErrorDelete( deleteRes, setDeleteRes)
-}, [deleteRes])
-
-
-
+  useEffect(() => {
+    useErrorDelete(deleteRes, setDeleteRes);
+  }, [deleteRes]);
 
   useEffect(() => {
     useErrorLikedBooks(resLike, likeItem, setResLike, setLikeOk);
@@ -71,16 +57,11 @@ useEffect(() => {
 
   useEffect(() => {
     fetch();
-    console.log('like', like)
+    console.log("like", like);
     setLike(false);
-    setDeleted(false)
-    // console.log("cargando", isLoading);
-    // console.log("reslike", resLike?.data?.userUpdated?.favBooks);
+    setDeleted(false);
+
   }, [like, deleted]);
-
-
-console.log(user.rol)
-
 
 
   if (resFetch?.response?.status == 404 || resFetch?.response?.status == 500) {
@@ -121,14 +102,16 @@ console.log(user.rol)
                     className="like btn"
                     onClick={() => handleLike(item._id)}
                   >
-                  { likedElement == item._id ? '♥' : '♡'}
+                    {likedElement == item._id ? "♥" : "♡"}
                   </button>
-                  { user?.rol == 'admin' ? <button
-                    className="delete-btn"
-                    onClick={() => handleDelete(item._id)}
-                  >
-                  Delete item
-                  </button> : null}
+                  {user?.rol == "admin" ? (
+                    <button
+                      className="delete-btn"
+                      onClick={() => handleDelete(item._id)}
+                    >
+                      Delete item
+                    </button>
+                  ) : null}
                 </div>
               </div>
             );

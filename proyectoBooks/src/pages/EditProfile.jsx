@@ -75,7 +75,7 @@ useEffect(() =>{
 
   return (
     <>
-      <div className="container-div profile-fiv">
+      <div className="form form-div">
             <div className='container-div profile-data'>
           <h1>Edit profile</h1>
           <p>Change your profile data </p>
@@ -150,12 +150,12 @@ useEffect(() =>{
               
           </div>
             <UploadFile />
-            <div className="btn_container">
+            <div className="btn-div container-div">
               <button
                 className="btn"
                 type="submit"
                 disabled={send}
-                style={{ background: send ? "#49c1a388" : "#49c1a2" }}>
+                style={{ background: send ? "#bf3a62" : "#EE5684"  }}>
                 Save changes
               </button>
             </div>

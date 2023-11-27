@@ -12,6 +12,7 @@ header{
 }
 
 nav{
+    margin: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,4 +26,8 @@ nav{
     align-items: center;
     flex-direction: row;
 
+}
+
+.header{
+    margin: 0.5rem 1rem;
 }

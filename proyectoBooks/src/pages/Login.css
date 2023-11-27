@@ -1,0 +1,27 @@
+.not-div{
+    margin: 1rem;
+}
+
+.form-login{
+    padding: 0.5rem 1rem;
+    max-width: 30vw;
+    max-height: 60vh;
+    min-width: 300px;
+    min-height: 400px;
+   font-family: 'Manrope', sans-serif;
+   background-color: #FFFFFF;
+   border: 1px solid rgb(246, 230, 233) ;
+   border-radius: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+  
+   -webkit-box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.16);
+   -moz-box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.16);
+   box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.16);
+  }
+
+  .input-login{
+    width: 200px;
+  }

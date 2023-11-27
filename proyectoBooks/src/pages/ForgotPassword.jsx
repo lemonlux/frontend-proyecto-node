@@ -38,12 +38,15 @@ if(ok){
 
 return (
   <>
-  <div className="form-wrap">
-    <h1>Forgot password?</h1>
-    <p className="bottom-text">Don't worry! We will send you a new one to your email</p>
+  <div className="form-password form-div">
+    <h1 className='h1-password'>Forgot password?</h1>
+    <p>Don't worry! We will send you a new one to your email</p>
 
     <form onSubmit={handleSubmit(formSubmit)}>
-      <div className="user_container form-group">
+      <div className="container-div form-div password-form-div">
+      <label htmlFor="custom-input" className="label">
+          Email
+        </label>
         <input
           className="input_user"
           type="text"
@@ -52,17 +55,13 @@ return (
           autoComplete="false"
           {...register("userEmail", { required: true })}
         />
-        <label htmlFor="custom-input" className="custom-placeholder">
-          Email
-        </label>
       </div>
-
-      <div className="btn_container">
+      <div className="btn-div container-div">
         <button
           className="btn"
           type="submit"
           disabled={send}
-          style={{ background: send ? "#49c1a388" : "#49c1a2" }}
+          style={{ background: send ? "#bf3a62" : "#EE5684" }}
         >
           Get new password
         </button>

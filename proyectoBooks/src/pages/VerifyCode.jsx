@@ -126,16 +126,16 @@ console.log(allUser.data.user.userEmail)
   
   return (
     <>
-      <div className="form-wrap">
+      <div className="form-login form-div">
         <h1>Verify your email</h1>
         <p>Please enter the 6-digit code that was sent to your email</p>
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="user_container form-group">
-          <label htmlFor="custom-input" className="custom-placeholder">
+          <label htmlFor="custom-input" className="label">
               Verification code
             </label>
             <input
-              className="input_user"
+              className="input-login input_user"
               type="text"
               id="name"
               name="name"
@@ -144,23 +144,23 @@ console.log(allUser.data.user.userEmail)
             />
           </div>
 
-          <div className="btn_container">
+          <div className="btn-div container-div">
             <button
               id="btnCheck"
               className="btn"
               type="submit"
               disabled={send}
-              style={{ background: send ? "#49c1a388" : "#49c1a2" }}
+              style={{ background: send ? "#bf3a62" : "#EE5684" }}
             >
               Submit
             </button>
           </div>
-          <div className="btn_container">
+          <div className="btn-div container-div">
             <button
               id="btnResend"
               className="btn"
               disabled={send}
-              style={{ background: send ? "#49c1a388" : "#49c1a2" }}
+              style={{ background: send ? "#bf3a62" : "#EE5684" }}
               onClick={() => handleResend()}
             >
               Resend Code

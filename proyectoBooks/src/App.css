@@ -24,6 +24,9 @@ body{
 main{
     width: 100vw;
     height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header{

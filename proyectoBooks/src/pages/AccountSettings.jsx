@@ -64,15 +64,15 @@ export const AccountSettings = () => {
 
     return (
 <>
+        <div className='form-login form-div'>
         <div>
-        <div className='container-div account-settings'>
           <h1>Account settings</h1>
           <p>Change your settings </p>
         </div>
         <div className="form-wrap">
         <h3>Change password</h3>
         <form onSubmit={handleSubmit(formSubmit)}>
-          <div className="password_container form-group">
+          <div className="container-div form-div">
           <label htmlFor="custom-input" className="custom-placeholder">
               Current password
             </label>
@@ -85,7 +85,7 @@ export const AccountSettings = () => {
               {...register("password", { required: true })}
             />
           </div>
-          <div className="newPassword_container form-group">
+          <div className="container-div form-div">
           <label htmlFor="custom-input" className="custom-placeholder">
               New password
             </label>
@@ -98,7 +98,7 @@ export const AccountSettings = () => {
               {...register("newPassword", { required: true })}
             />
           </div>
-          <div className="confirmPassword_container form-group">
+          <div className="container-div form-div">
           <label htmlFor="custom-input" className="custom-placeholder">
               Confirm new password
             </label>
@@ -117,7 +117,7 @@ export const AccountSettings = () => {
               className="btn"
               type="submit"
               disabled={send}
-              style={{ background: send ? "#49c1a388" : "#49c1a2" }}
+              style={{ background: send ? "#bf3a62" : "#EE5684" }}
             >
               Change Password
             </button>
@@ -125,11 +125,11 @@ export const AccountSettings = () => {
         </form>
       </div>
 
-
+      </div>
         <button className='delete' onClick={()=> useDeleteUser(setUser, setDeleteUser)}>
         Delete account
       </button>
-      </div>
+
 </>
 
     )

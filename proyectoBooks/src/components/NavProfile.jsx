@@ -30,7 +30,7 @@ export const NavProfile = () => {
         <div>My favourites</div>
         </Link>
 
-        <div><h4 onClick={() =>logout()}>Log out</h4></div>
+        <div className='logout'><h4 id='logout' onClick={() =>logout()}>Log out</h4></div>
     </div>
   )
 }

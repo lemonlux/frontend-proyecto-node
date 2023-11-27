@@ -21,34 +21,40 @@ export const Header = () => {
     </div>  
 
     <nav>
-
-
+   
+    <div className='header-div'>
   {user == null && (
   <NavLink to='/register'>
     <h1 className='header'>Create an account</h1>
   </NavLink>
 )}
+        </div>
 
+        <div className='header-div'>
 {user == null && (
   <NavLink to='/login'>
     <h1 className='header'>Log in</h1>
   </NavLink>
 )}
+</div>
+
+<div className='header-div'>
 {user !== null && (
   <NavLink to='/dashboard'>
     <h1 className='header'>Dashboard</h1>
   </NavLink>
 )}
+</div>
 
+<div className='header-div'>
 {user !== null && (
   <NavLink to='/profile'>
     <h1 className='header'>Profile</h1>
   </NavLink>
 )}
-
+</div>
 
     </nav>
-
 
 
 

@@ -9,7 +9,19 @@ export const getAllBooks = async () => {
     return APIUser.get("/books/sort/sortAtoZ/")
       .then((res) => res)
       .catch((error) => error);
+
   };
+
+
+
+//! ------------------ GET BY ID -------------------
+
+export const getBookById = async (idBook) => {
+  return APIUser.get(`/books/${idBook}`)
+    .then((res) => res)
+    .catch((error) => error);
+
+};
 
 
 

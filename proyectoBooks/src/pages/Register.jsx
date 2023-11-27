@@ -67,10 +67,12 @@ export const Register = () => {
   return (
     <>
       <div className="form form-div">
+      <div className="account-div">
         <h1 className="h1-account">Create an account</h1>
         <p>
           Already a member? <Link to="/login">Log in</Link>
         </p>
+        </div>
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="container-div form-div user">
             <label htmlFor="custom-input" className="label username">
@@ -194,9 +196,6 @@ export const Register = () => {
           </p>
         </form>
       </div>
-      <footer>
-        <p></p>
-      </footer>
     </>
   );
 };

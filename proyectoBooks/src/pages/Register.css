@@ -1,25 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
 
-form{
-  margin: 1rem 0 0 0;
-}
-h1{
-  margin: 0.5rem;
-}
+
 p{
-  font-size: 14px;
+  font-size: 12px;
 }
 .h1-account{
   font-size: 20px;
 }
+.account-div{
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 .form{
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   max-width: 30vw;
-  max-height: 70vh;
-  min-width: 350px;
-  min-height: 600px;
+  max-height: 60vh;
+  min-width: 300px;
+  min-height: 550px;
  font-family: 'Manrope', sans-serif;
  background-color: #FFFFFF;
  border: 1px solid rgb(246, 230, 233) ;
@@ -76,14 +78,15 @@ background-color: #8b2745
 
 
 .file{
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* input{
-  height: 2rem;
-} */
+input{
+  height: 1.5rem;
+}
 
 .btn{
   height: 2.5rem;
